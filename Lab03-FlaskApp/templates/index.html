@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Flask API Example</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="static/normalize.css">
+  <link rel="stylesheet" href="static/skeleton.css">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h1>Image Color Model as a Flask API</h1>
+        <form action="/analyze" method="post" enctype="multipart/form-data">
+          <input class="button-primary" type="file" name="image" value="Upload">
+          <input type="submit" value="Predict">
+        </form>
+      </div>
+    <div class="row">
+      <div class=".offset-by-one.column">
+        <svg width="720" height="120">
+          {% if bob %}
+          <circle fill={{ bob[0] }} cx="40" cy="30" r="20"></circle>
+          <circle fill={{ bob[1] }} cx="120" cy="30" r="20"></circle>
+          <circle fill={{ bob[2] }} cx="200" cy="30" r="20"></circle>
+          {% else %}
+          <circle cx="40" cy="60" r="20"></circle>
+          <circle cx="80" cy="60" r="20"></circle>
+          <circle cx="120" cy="60" r="20"></circle>
+          {% endif %}
+        </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+  var circle = d3.selectAll("circle")
+      .data(['#BF0A30#BF0A30','#002868','#FFFFFF']);
+  circle.enter()
+      .style("fill", "#BF0A30")
+      .attr("r", 30)
+</script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
